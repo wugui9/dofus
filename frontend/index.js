@@ -29,13 +29,20 @@ app.get('/', async (req, res) => {
           <div class="container">
             <h1>Dofus Roster</h1>
             <table>
-              <tr><th>Nom</th><th>Classe</th><th>Niveau</th><th>Succès</th></tr>
+              <tr>
+                <th>Nom</th>
+                <th>Classe</th>
+                <th>Niveau</th>
+                <th>Succès</th>
+                <th>Popularité</th> <!-- Nouvelle colonne Popularité -->
+              </tr>
               ${Object.keys(characters.data).map(name => `
                 <tr>
                   <td>${name}</td>
                   <td>${characters.data[name].class}</td>
                   <td>${characters.data[name].level}</td>
                   <td>${characters.data[name].achievements}</td>
+                  <td>${characters.data[name].popularity}%</td> <!-- Affichage du score de popularité -->
                 </tr>
               `).join('')}
             </table>
